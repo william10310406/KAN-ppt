@@ -4,6 +4,10 @@
 \usepackage[UTF8]{ctex}
 \usepackage{graphicx}
 \usepackage{hyperref}
+\usepackage{caption}
+
+% 移除圖表標題的前綴
+\setbeamertemplate{caption}{\insertcaption}
 
 % 主題設定
 \usetheme{Madrid}
@@ -23,52 +27,144 @@
 % 目錄頁
 \begin{frame}
     \frametitle{目錄}
-    \section{六堂課目錄}
-    \section{KAN論文簡介}
-    \section{KAN實作}
-    \section{記憶模型能不能降低KAN的誤差}
-    \tableofcontents
+    \begin{enumerate}
+        \item 六堂課目錄
+        \item KAN論文簡介
+        \item KAN實作
+        \item 記憶模型能不能降低KAN的誤差
+    \end{enumerate}
 \end{frame}
 
 % 第一節
-\section{引言}
 \begin{frame}
-    \frametitle{引言}
+    \frametitle{六堂課目錄}
     \begin{itemize}
-        \item 第一個重點
-        \item 第二個重點
-        \item 第三個重點
+        \item 113年學年度第二學期AI for Math系列演講
+        \item 114年02月27日 潘老師 講題：感知機（The Perceptron）
+        \item 114年03月06日 潘老師 講題：淺談Adaptive Linear Neuron 和Widrow-Hoff Learning
+        \item 114年03月20日 潘老師 講題：The Basics of Multilayer Perceptron and Backpropagation
+        \item 114年03月27日 俞讚城老師 講題：Introduction to Shannon Entropy and Cross Entropy
+        \item 114年04月17日 俞讚城老師 講題：Introduction to Universal Approximation Theorems and Application in AI
+        \item 114年05月08日 嚴健彰老師 講題：KAN: Kolmogorov-Arnold Networks
     \end{itemize}
 \end{frame}
 
-% 第二節
-\section{主要內容}
 \begin{frame}
-    \frametitle{主要內容}
-    \begin{block}{重要概念}
-        這裡是一些重要的內容說明
-    \end{block}
+    \frametitle{KAN論文簡介}
     \begin{itemize}
-        \item 詳細說明點1
-        \item 詳細說明點2
+        \item 論文發表時間：2023
+        \item 主要特點：整合領域先驗知識與深度神經網路
+        \item 應用領域：數學建模與科學計算
     \end{itemize}
 \end{frame}
 
-% 圖片示例
 \begin{frame}
-    \frametitle{圖片展示}
-    % \includegraphics[width=0.8\textwidth]{example-image}
-    \centerline{這裡可以放置圖片}
+    \frametitle{KAN架構與特點}
+    \begin{itemize}
+        \item KAN（Kolmogorov–Arnold Network）受Kolmogorov–Arnold表示定理（KAT）啟發
+        \item 創新架構：
+        \begin{itemize}
+            \item 可學習的一維激活函數位於邊上，取代傳統線性權重
+            \item 使用樣條函數（spline）參數化
+            \item 每個節點僅執行線性加總，不附加任何非線性激活函數。
+        \end{itemize}
+    \end{itemize}
 \end{frame}
 
-% 結論
-\section{結論}
 \begin{frame}
-    \frametitle{結論}
+    \frametitle{KAN優勢}
     \begin{itemize}
-        \item 總結要點1
-        \item 總結要點2
-        \item 未來展望
+        \item 效能優勢：
+        \begin{itemize}
+            \item 小規模AI任務中，參數量更少
+            \item 比MLP擁有更高精度
+            \item 更快的泛化縮放律
+        \end{itemize}
+        \item 可解釋性：
+        \begin{itemize}
+            \item 激活函數可視化
+            \item 可逐層稀疏修剪
+            \item 適用於（準）符號回歸與科學發現
+        \end{itemize}
+        \item 應用優勢：
+        \begin{itemize}
+            \item 可用於PDE求解（PINN框架）
+            \item 連續學習中能有效避免遺忘現象
+            \item 結合樣條高精度與MLP組合結構
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{KAN實作}
+    \begin{figure}
+        \centering
+        \begin{minipage}{\textwidth}
+            \includegraphics[width=0.9\textwidth,height=0.4\textheight,keepaspectratio]{figures/211_3.jpg}
+            \centering
+            圖片[2,1,1] 測試點比較
+        \end{minipage}
+        
+        \vspace{0.5em}
+        
+        \begin{minipage}{\textwidth}
+            \includegraphics[width=0.9\textwidth,height=0.4\textheight,keepaspectratio]{figures/251.jpg}
+            \centering
+            圖片[2,5,1] 測試點比較
+        \end{minipage}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{KAN實作}
+    \begin{figure}
+        \centering
+        \begin{minipage}{\textwidth}
+            \includegraphics[width=0.9\textwidth,height=0.4\textheight,keepaspectratio]{figures/211比較2.jpg}
+            \centering
+            圖片:211比較2
+        \end{minipage}
+        
+        \vspace{0.5em}
+        
+        \begin{minipage}{\textwidth}
+            \includegraphics[width=0.9\textwidth,height=0.5\textheight,keepaspectratio]{figures/211比較2視覺化.jpg}
+            \centering
+            圖片:211比較2視覺化
+        \end{minipage}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{KAN實作}
+    \begin{figure}
+        \centering
+        \begin{minipage}{\textwidth}
+            \includegraphics[width=0.9\textwidth,height=0.4\textheight,keepaspectratio]{figures/211比較1.jpg}
+            \centering
+            
+        \end{minipage}
+        
+        \vspace{0.5em}
+        
+        \begin{minipage}{\textwidth}
+            \includegraphics[width=0.9\textwidth,height=0.5\textheight,keepaspectratio]{figures/211比較6.jpg}
+            \centering
+            
+        \end{minipage}
+
+        \begin{minipage}{\textwidth}
+            \includegraphics[width=0.9\textwidth,height=0.5\textheight,keepaspectratio]{figures/211比較12.jpg}
+            \centering
+            
+        \end{minipage}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{記憶模型能不能降低KAN的誤差}
+    \begin{itemize}
+        \item 記憶模型能不能降低KAN的誤差
     \end{itemize}
 \end{frame}
 
