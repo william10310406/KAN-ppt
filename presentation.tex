@@ -5,19 +5,21 @@
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{caption}
+\usepackage{tabularx}
+\usepackage{array}
 
 % 移除圖表標題的前綴
 \setbeamertemplate{caption}{\insertcaption}
 
 % 主題設定
 \usetheme{Madrid}
-\usecolortheme{default}
+\usecolortheme{seagull}
 
 % 標題信息
 \title{AI For Math}
 \author{作者名稱:簡偉恆、盧詠涵}
 \institute{輔仁大學 數學系 資訊數學組一年級}
-\date{\today}
+\date{2025年6月8日}
 
 \begin{document}
 
@@ -28,7 +30,7 @@
 \begin{frame}
     \frametitle{目錄}
     \begin{enumerate}
-        \item 六堂課目錄
+        \item 六堂課程總覽
         \item KAN論文簡介
         \item KAN實作
         \item 記憶模型能不能降低KAN的誤差
@@ -36,23 +38,33 @@
 \end{frame}
 
 % 第一節
-\begin{frame}
-    \frametitle{六堂課目錄}
-    \begin{itemize}
-        \item 113年學年度第二學期AI for Math系列演講
-        \item 114年02月27日 潘老師 講題：感知機（The Perceptron）
-        \item 114年03月06日 潘老師 講題：淺談Adaptive Linear Neuron 和Widrow-Hoff Learning
-        \item 114年03月20日 潘老師 講題：The Basics of Multilayer Perceptron and Backpropagation
-        \item 114年03月27日 俞讚城老師 講題：Introduction to Shannon Entropy and Cross Entropy
-        \item 114年04月17日 俞讚城老師 講題：Introduction to Universal Approximation Theorems and Application in AI
-        \item 114年05月08日 嚴健彰老師 講題：KAN: Kolmogorov-Arnold Networks
-    \end{itemize}
+\begin{frame}[c]{六堂課程總覽}
+    \centering
+    \textbf{113年學年度第二學期AI for Math系列演講}
+    \vspace{0.2cm}
+    \normalsize % 或 \scriptsize，依需要微調字體大小
+    \begin{tabularx}{\textwidth}{%
+        >{\centering\arraybackslash}p{1.8cm}  % 第一欄居中
+        >{\centering\arraybackslash}p{1.6cm}  % 第二欄居中
+        X         % 第三欄自動換行
+    }
+        \hline
+        日期        & 講者    & \>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>講題 \\ \hline
+        114/02/27   & 潘老師  & 感知機（The Perceptron） \\
+        114/03/06   & 潘老師  & 淺談 Adaptive Linear Neuron 和 Widrow-Hoff Learning \\
+        114/03/20   & 潘老師  & The Basics of Multilayer Perceptron and Backpropagation \\
+        114/03/27   & 俞讚城 & Introduction to Shannon Entropy and Cross Entropy \\
+        114/04/17   & 俞讚城 & Introduction to Universal Approximation Theorems and Application in AI \\
+        114/05/08   & 嚴健彰 & KAN: Kolmogorov-Arnold Networks \\
+        \hline
+    \end{tabularx}
 \end{frame}
 
 \begin{frame}
     \frametitle{KAN論文簡介}
     \begin{itemize}
-        \item 論文發表時間：2023
+        \item 論文發表時間：2023年
+        \item 論文標題：KAN: Kolmogorov–Arnold Networks
         \item 主要特點：整合領域先驗知識與深度神經網路
         \item 應用領域：數學建模與科學計算
     \end{itemize}
