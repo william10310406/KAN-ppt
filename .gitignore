@@ -1,0 +1,59 @@
+# LaTeX 臨時文件
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+.*.lb
+
+# Beamer 特定文件
+*.nav
+*.snm
+*.vrb
+
+# PDF 輸出 (如果您想將 PDF 也排除在外，取消下面的註釋)
+# *.pdf
+
+# LaTeX 中間文件
+*.dvi
+*.xdv
+*-converted-to.*
+
+# 生成的文件
+*.ps
+*.eps
+
+
+# bibtex
+*.bbl
+*.bcf
+*.blg
+*-blx.aux
+*-blx.bib
+*.run.xml
+
+# 其他臨時文件
+*.fdb_latexmk
+*.synctex
+*.synctex(busy)
+*.synctex.gz
+*.synctex.gz(busy)
+*.pdfsync
+
+# macOS 系統文件
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# 縮略圖
+._*
+
+# 可能出現在外部磁盤上的文件
+.Spotlight-V100
+.Trashes 
