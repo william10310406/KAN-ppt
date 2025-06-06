@@ -16,9 +16,9 @@
 \usecolortheme{seagull}
 
 % 標題信息
-\title{AI For Math}
+\title[TWSIAM 2025, 清華大學數學系]{AI For Math}
 \author{作者名稱:簡偉恆、盧詠涵}
-\institute{輔仁大學 數學系 資訊數學組一年級}
+\institute[輔仁大學資數一]{輔仁大學 數學系 資訊數學組一年級}
 \date{2025年6月8日}
 
 \begin{document}
@@ -31,7 +31,7 @@
     \frametitle{大綱}
     \begin{enumerate}
         \item 社群活動簡介
-        \item KAN：Kolmogorov–Arnold Network論文簡介
+        \item Kolmogorov–Arnold Network簡介
         \item Kolmogorov–Arnold Network實作
         \item 記憶模型能不能降低Kolmogorov–Arnold Networks的誤差
     \end{enumerate}
@@ -40,7 +40,7 @@
 % 第一節
 \begin{frame}[c]{六堂課程總覽}
     \centering
-    \textbf{113年學年度第二學期AI for Math系列演講}\\[1em]  % 在這行與下一行之間增加1em的行距
+    \textbf{113年學年度第二學期AI for Math系列演講}\\[0.1cm]
     \normalsize % 或 \scriptsize，依需要微調字體大小
     \begin{tabularx}{\textwidth}{%
         >{\centering\arraybackslash}p{1.8cm}  % 第一欄居中
@@ -60,30 +60,55 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{KAN論文簡介}
+    \frametitle{Kolmogorov–Arnold Network簡介}
+    \centering
+    \textbf{論文簡介}\\[0.5cm]
     \begin{itemize}
-        \item 論文發表時間：2023年
-        \item 論文標題：KAN: Kolmogorov–Arnold Networks
+        \item 發表時間：2023年
+        \item 標題：KAN: Kolmogorov–Arnold Networks
+    %    \item 作者：Ziming Liu, Yixuan Wang, Sachin Vaidya, Fabian Ruehle, James Halverson, Marin Soljačić, Thomas Y. Hou, and Max Tegmark
         \item 主要特點：整合領域先驗知識與深度神經網路
         \item 應用領域：數學建模與科學計算
     \end{itemize}
 \end{frame}
 
 \begin{frame}
-    \frametitle{KAN架構與特點}
+    \frametitle{Kolmogorov–Arnold Network簡介}
+    \centering
+    \textbf{MLP vs. KAN}\\
+    \begin{figure}               % figure 環境（在 Beamer 中可省略，但如果要加 caption，就需要）
+    \centering                 % 置中
+    % \includegraphics[〈選項〉]{〈路徑/檔名〉}
+    % 下面選項講解：
+    %   width=0.8\textwidth    → 圖片寬度設定為投影片文字寬度的 80%
+    %   keepaspectratio        → 保持原始比例（長寬比）
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{figures/MLP_vs_KAN.png}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Kolmogorov–Arnold Network簡介}
+    \centering
+    \textbf{KAN 架構與特點}\\[0.1cm]
     \begin{itemize}
-        \item KAN（Kolmogorov–Arnold Network）受Kolmogorov–Arnold表示定理（KAT）啟發
+        \item KAN（Kolmogorov–Arnold Network）受 Kolmogorov–Arnold 表示定理（KAT）啟發
         \item 創新架構：
         \begin{itemize}
             \item 可學習的一維激活函數位於邊上，取代傳統線性權重
             \item 使用樣條函數（spline）參數化
-            \item 每個節點僅執行線性加總，不附加任何非線性激活函數。
+            \item 每個節點僅執行線性加總，不附加任何非線性激活函數
         \end{itemize}
+        \begin{figure}
+            \centering
+            \includegraphics[width=0.8\textwidth,keepaspectratio]{figures/KAN架構.png}
+        \end{figure}
     \end{itemize}
 \end{frame}
 
 \begin{frame}
-    \frametitle{KAN優勢}
+    \frametitle{Kolmogorov–Arnold Network簡介}
+    \centering
+    \textbf{KAN 優勢}\\[0.1cm]
     \begin{itemize}
         \item 效能優勢：
         \begin{itemize}
