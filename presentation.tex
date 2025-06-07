@@ -9,6 +9,7 @@
 \usepackage{array}
 \usepackage{amssymb}
 \usepackage{amsmath}
+\newtheorem{thm}{定理}
 
 
 % 移除圖表標題的前綴
@@ -19,9 +20,9 @@
 \usecolortheme{seagull}
 
 % 標題信息
-\title[TWSIAM 2025, 清華大學數學系]{AI For Math}
+\title[2025 TWSIAM Annual Meeting, 清華大學數學系]{AI For Math}
 \author{簡偉恆、盧詠涵}
-\institute[輔仁大學資數一]{輔仁大學\>\>數學系資訊數學組\>\>一年級}
+\institute[輔仁大學資數一]{輔仁大學數學系  資訊數學組  一年級}
 \date{2025年6月8日}
 
 \begin{document}
@@ -41,25 +42,34 @@
 \end{frame}
 
 % 第一節
-\begin{frame}[c]{六堂課程總覽}
+\begin{frame}[c]{社群活動簡介}
     \centering
     \textbf{113年學年度第二學期AI for Math系列演講}\\[0.1cm]
     \normalsize % 或 \scriptsize，依需要微調字體大小
     \begin{tabularx}{\textwidth}{%
         >{\centering\arraybackslash}p{1.8cm}  % 第一欄居中
-        >{\centering\arraybackslash}p{1.6cm}  % 第二欄居中
+        >{\centering\arraybackslash}p{2cm}  % 第二欄居中
         X         % 第三欄自動換行
     }
         \hline
-        日期        & 講者    & \>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>講題 \\ \hline
+        日期        & 講者    & \>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>講題 \\ \hline
         114/02/27   & 潘老師  & 感知機（The Perceptron） \\
         114/03/06   & 潘老師  & 淺談 Adaptive Linear Neuron 和 Widrow-Hoff Learning \\
         114/03/20   & 潘老師  & The Basics of Multilayer Perceptron and Backpropagation \\
-        114/03/27   & 俞讚城老師 & Introduction to Shannon Entropy and Cross Entropy \\
-        114/04/17   & 俞讚城老師 & Introduction to Universal Approximation Theorems and Application in AI \\
-        114/05/08   & 嚴健彰老師 & KAN: Kolmogorov-Arnold Networks \\
+        114/03/27   & 俞讚城教授 & Introduction to Shannon Entropy and Cross Entropy \\
+        114/04/17   & 俞讚城教授 & Introduction to Universal Approximation Theorems and Application in AI \\
+        114/05/08   & 嚴健彰教授 & KAN: Kolmogorov-Arnold Networks \\
         \hline
     \end{tabularx}
+\end{frame}
+
+\begin{frame}{社群活動簡介}
+\centering
+\textbf{活動剪影}\\[0.1cm]
+  \begin{figure}
+    \centering
+    \includegraphics[width=\textwidth,keepaspectratio]{figures/活動節錄.jpg}
+  \end{figure}
 \end{frame}
 
 \begin{frame}
@@ -67,11 +77,11 @@
     \centering
     \textbf{論文簡介}\\[0.5cm]
     \begin{itemize}
-        \item 發表時間：2023年
         \item 標題：KAN: Kolmogorov–Arnold Networks
-    %    \item 作者：Ziming Liu, Yixuan Wang, Sachin Vaidya, Fabian Ruehle, James Halverson, Marin Soljačić, Thomas Y. Hou, and Max Tegmark
+        \item 作者：Ziming Liu 等人
         \item 主要特點：整合領域先驗知識與深度神經網路
         \item 應用領域：數學建模與科學計算
+        \item https://arxiv.org/pdf/2404.19756
     \end{itemize}
 \end{frame}
 
@@ -119,24 +129,40 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{Kolmogorov–Arnold Network簡介}
-    \centering
-    \textbf{Kolmogorov-Arnold Representation Theorem簡介}\\[0.5cm]
-    \begin{itemize}
-    \item 提出者：Andrey Kolmogorov, Vladimir Arnold
-    \item 內容：針對任意有界區間 $[0,1]^n$ 上的連續函數 $f(x_1,\dots,x_n)$，\\\hspace*{3em}該定理保證：
-      \begin{equation*}\label{eq:kat}
-        f(x_1,\dots,x_n)
-        \;=\;
-        \sum_{q=1}^{2n+1}
-        \Phi_q\Bigl(\,\sum_{p=1}^n \varphi_{q,p}(x_p)\Bigr)
-      \end{equation*}
-    \item 其中：
-      \begin{itemize}
-        \item $\varphi_{q,p}:\,[0,1]\to\mathbb{R}$ 為一維連續函數，作用於單一變量 $x_p$
-        \item $\Phi_q:\mathbb{R}\to\mathbb{R}$ 為一維連續函數，作用於所有 $\varphi_{q,p}(x_p)$ 的加總結果
-      \end{itemize}
-  \end{itemize}
+\begin{thm} [Hilbert’s 13th problem]
+    Can the roots of the equation
+    \[
+      x^7 + a x^3 + b x^2 + c x + 1 = 0
+    \]
+    be represented as superpositions of continuous functions of two variables?
+ \end{thm}
+ \end{frame}
+
+ \begin{frame}
+  \begin{thm}[Kolmogorov 1956]
+    Any continuous function \(f\) of \(n\in\mathbb{N}\) variables can be represented as a finite number of superpositions of functions of 3 variables. For instance, for \(n=4\) one has
+    \[
+      f(x_1,x_2,x_3,x_4)
+      \;=\;
+      \sum_{i=1}^{4}
+        g^i\bigl(u(x_1,x_2,x_3),\,v(x_1,x_2,x_3),\,x_4\bigr),
+    \]
+    for some continuous functions \(g^i,\;u,\;v:\mathbb{R}^3\to\mathbb{R}\).
+  \end{thm}
+\end{frame}
+
+\begin{frame}
+\begin{thm} [Kolmogorov–Arnold Representation Theorem]
+For any continuous function $f(x_1,\dots,x_n)$ defined on the $[0,1]^n$,
+        \begin{equation*}\label{eq:kat}
+            f(x_1,\dots,x_n)
+            \;=\;
+            \sum_{q=1}^{2n+1}
+            \Phi_q\Bigl(\sum_{p=1}^n \varphi_{q,p}(x_p)\Bigr)
+        \end{equation*}  
+where $\varphi_{q,p}:\,[0,1]\to\mathbb{R}$ are univariate continuous functions acting on each variable $x_p$ and 
+$\Phi_q:\mathbb{R}\to\mathbb{R}$ are univariate continuous functions acting on the sum of all $\varphi_{q,p}(x_p)$.
+ \end{thm}  
 \end{frame}
 
 \begin{frame}
@@ -258,10 +284,7 @@
 
 \begin{frame}
     \begin{center}
-        \Huge\textbf{謝謝大家}
-        
-        \vspace{1em}
-        \Large 報告結束
+        \Huge\textbf{謝謝聆聽}
     \end{center}
 \end{frame}
 
